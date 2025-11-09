@@ -1,0 +1,65 @@
+@use "../../../lib/nueac-standard/src/breakpoints" as *;
+
+.has-horizontal-scroll {
+	color: var(--wp--custom--color--lessen);
+	font-family: var(--wp--preset--font-family--small);
+	font-style: italic;
+}
+
+.has-horizontal-scroll.is-layout-flex {
+	gap: var(--wp--custom--spacing--100);
+}
+
+.has-horizontal-scroll > * {
+	flex-shrink: 0;
+
+	@media ($less-than-narrow) {
+		min-width: 100vw;
+	}
+}
+
+.has-horizontal-scroll > *:not(:first-child) {
+	padding-inline: var(--wp--custom--spacing--60);
+}
+
+.has-horizontal-scroll .wp-block-image {
+	margin-inline: unset;
+	max-width: none;
+}
+
+#timber-wars > *:last-child,
+#cheewhat-giant {
+	background-color: var(--wp--custom--color--background);
+	transition: 1s background-color ease-in-out;
+	z-index: 0;
+
+	&::after {
+		background-image: url(../tree-rings.png);
+		background-repeat: no-repeat;
+		background-size: auto 100%;
+		content: "";
+		height: 860px;
+		mix-blend-mode: soft-light;
+		position: absolute;
+		z-index: -1;
+	}
+}
+
+#timber-wars > *:last-child {
+	overflow: hidden;
+	position: relative;
+}
+
+#timber-wars > *:last-child::after {
+	aspect-ratio: 1/2;
+	opacity: 0.6;
+	right: 0;
+	top: -30vh;
+}
+
+#cheewhat-giant::after {
+	aspect-ratio: 1;
+	background-position: top right;
+	bottom: -25vh;
+	filter: invert(1);
+}

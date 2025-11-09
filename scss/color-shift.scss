@@ -1,0 +1,30 @@
+@use "../../../lib/nueac-standard/src/breakpoints" as *;
+
+.has-color-shift {
+	background-color: var(--wp--custom--color--background);
+	color: var(--wp--custom--color--foreground);
+	margin-block: 0;
+	transition-duration: 1s;
+	transition-property: background-color, color, filter;
+	transition-timing-function: ease-in-out;
+}
+
+.has-color-shift.is-color-shifted:not(.has-taupe-background-color) {
+	--wp--custom--color--background: var(--light-green);
+	--wp--custom--color--foreground: var(--darkest-green);
+	--wp--custom--color--emphasize: var(--darkest-green);
+	--wp--custom--color--lessen: var(--darker-green);
+}
+
+.has-taupe-background-color {
+	--wp--custom--color--background: var(--darker-taupe);
+	--wp--custom--color--foreground: var(--cream);
+	--wp--custom--color--lessen: var(--light-taupe);
+}
+
+.has-color-shift.is-color-shifted.has-taupe-background-color {
+	--wp--custom--color--background: var(--cream);
+	--wp--custom--color--foreground: var(--darkest-taupe);
+	--wp--custom--color--lessen: var(--darker-taupe);
+	--wp--custom--color--emphasize: var(--darkest-taupe);
+}

@@ -1,0 +1,74 @@
+@use "../../../lib/nueac-standard/src/breakpoints" as *;
+
+#ancient-beings {
+	color: inherit;
+	gap: 0;
+	max-height: 100lvh;
+	overflow: visible;
+
+	@media ($at-least-wide) {
+		font-size: var(--wp--preset--font-size--large);
+	}
+}
+
+#ancient-beings .wp-block-cover {
+	color: inherit;
+	margin-right: -11lvh;
+	text-shadow: none;
+	width: 80lvh;
+
+	@media (max-width: 690px) {
+		align-self: flex-start;
+	}
+
+	@media ($less-than-wide) {
+		margin-bottom: -16lvh;
+	}
+
+	@media ($at-least-wide) {
+		margin-bottom: -23lvh;
+	}
+
+	@media ($at-least-narrow) {
+		margin-top: -13%;
+	}
+}
+
+#ancient-beings .wp-block-cover__image-background {
+	box-sizing: border-box;
+	object-fit: contain;
+	padding: 13%;
+}
+
+#ancient-beings .wp-block-cover__inner-container {
+	height: 100%;
+}
+
+#ancient-beings p {
+	width: 100%;
+
+	@media ($less-than-wide) {
+		max-width: 68lvh;
+	}
+
+	@media ($at-least-wide) {
+		max-width: 85lvh;
+	}
+}
+
+#ancient-beings p + p {
+	margin-top: 1em;
+}
+
+#ancient-beings p:first-of-type {
+	align-self: flex-start;
+}
+
+#ancient-beings svg {
+	display: block;
+}
+
+#ancient-beings text {
+	fill: currentcolor;
+	font-size: 105%;
+}

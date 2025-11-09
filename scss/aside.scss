@@ -1,0 +1,55 @@
+@use "../../../lib/nueac-standard/src/breakpoints" as *;
+
+.is-aside {
+	color: var(--wp--custom--color--lessen);
+	position: relative;
+	z-index: 0;
+
+	&::after {
+		aspect-ratio: 1.1;
+		background-image: url(../tree-rings.png);
+		background-repeat: no-repeat;
+		background-size: auto 100%;
+		content: "";
+		height: 800px;
+		position: absolute;
+		right: -15%;
+		z-index: -1;
+	}
+}
+
+.is-aside p {
+	font-family: var(--wp--preset--font-family--small);
+	font-style: italic;
+}
+
+.is-aside > .is-layout-grid {
+
+	@media ($less-than-extra-wide) {
+		display: flex;
+		flex-direction: column;
+		max-width: var(--wp--custom--layout--content-size) !important;
+	}
+}
+
+#timber-wars::after {
+	bottom: -25%;
+	opacity: 0.2;
+}
+
+#cheewhat-giant {
+	background-color: var(--wp--custom--color--background);
+	transition: 1s background-color ease-in-out;
+
+	&::after {
+		filter: invert(1);
+		mix-blend-mode: soft-light;
+		top: 25%;
+	}
+}
+
+.is-aside .wp-block-columns.is-layout-flex,
+.is-aside .wp-block-group.is-layout-flex {
+	gap: var(--wp--custom--spacing--50);
+}
+

@@ -1,0 +1,153 @@
+@use "../../../lib/nueac-standard/src/breakpoints" as *;
+
+#intro {
+	gap: 0;
+	padding-inline: 0;
+	position: relative;
+
+	@media ($less-than-wide) {
+		flex-wrap: wrap !important;
+	}
+}
+
+#intro .wp-block-column {
+	position: relative;
+	z-index: 1;
+
+	@media ($less-than-wide) {
+		flex-basis: 100% !important;
+	}
+}
+
+.cloned-cover {
+	position: absolute;
+	width: 100%;
+}
+
+.cloned-cover .wp-block-cover__image-background,
+.cloned-cover .wp-block-cover__background {
+	mask: url(../mask-left-tree.png) no-repeat center/cover;
+}
+
+#intro .wp-block-cover {
+	--wp--custom--color--background: var(--darker-green);
+
+	@media ($less-than-wide) {
+		position: absolute;
+		width: 100%;
+	}
+}
+
+#intro .wp-block-cover__background,
+#intro .wp-block-cover__image-background {
+	transform: scale(150%);
+	transform-origin: top left;
+}
+
+#intro-instructions {
+	background: var(--wp--custom--color--background);
+	gap: var(--wp--custom--spacing--40);
+	position: absolute;
+	z-index: 1;
+
+	@media ($less-than-wide) {
+		opacity: 0.9;
+	}
+}
+
+#intro-instructions p,
+#intro-instructions::before,
+#intro-instructions::after {
+	mix-blend-mode: soft-light;
+}
+
+#intro-instructions::before {
+	aspect-ratio: 1/1.15;
+	background-image: url(../pinecone.png);
+	background-size: contain;
+	content: "";
+	display: block;
+	filter: invert(1);
+	width: 70px;
+}
+
+#intro-instructions::after {
+	animation: bounce 0.6s infinite alternate;
+	aspect-ratio: 0.95;
+	background: currentcolor;
+	content: "";
+
+	// TODO: we should be able to use nueac-standard's @include heroicon-mask('arrow-long-down');
+	mask-image: url(../../../../lib/heroicons/24/solid/arrow-long-down.svg);
+	mask-size: contain;
+	width: 1.5em;
+}
+
+@keyframes bounce {
+
+	from {
+		transform: translateY(-15%);
+	}
+
+	to {
+		transform: translateY(15%);
+	}
+}
+
+#intro .wp-block-cover:not(.cloned-cover)::after {
+
+	@media ($at-least-wide) {
+		background: linear-gradient(275deg, var(--wp--custom--color--background) 9%, transparent 53%);
+		content: "";
+		inset: 0;
+		position: absolute;
+	}
+}
+
+#intro .wp-block-cover:not(.cloned-cover) .wp-block-cover__background::after {
+	background: linear-gradient(180deg, var(--wp--custom--color--background), transparent 50%);
+	content: "";
+	inset: 0;
+	mask-image: url(../mask-both-trees.png);
+	mask-position: center;
+	mask-size: cover;
+	position: absolute;
+}
+
+#intro .wp-block-post-title {
+	text-shadow: 0 4px 4px var(--wp--custom--color--background);
+}
+
+#intro-content .wp-block-group {
+	gap: var(--wp--preset--spacing--70);
+}
+
+#intro-content .wp-block-group:first-child {
+
+	@media ($at-least-wide) {
+		flex-grow: 0;
+	}
+}
+
+#intro .wp-block-pullquote cite {
+	background-color: var(--wp--custom--color--background);
+	padding: 0;
+	transition: 1s background-color ease-in-out;
+
+	&::before {
+		aspect-ratio: 3.5/2;
+		background-image: url(../sprig.png);
+		background-size: contain;
+		content: "";
+		display: block;
+		filter: invert(1);
+		margin: var(--wp--preset--spacing--60) auto;
+		mix-blend-mode: soft-light;
+		transition: 1s filter ease-in-out;
+		width: 125px;
+	}
+}
+
+.is-color-shifted #intro .wp-block-pullquote cite::before {
+	filter: none;
+}
